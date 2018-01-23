@@ -2,10 +2,14 @@ body, html{
   height:100%;
 }
 body{
+  min-height: 100%;
+  min-width: 100%;
   margin: 0px;
   background-color:#444;
   font-size: 18px;
   overflow: hidden;
+  background: url('http://i.vimeocdn.com/video/460516322_1280x720.jpg');
+  background-size: cover;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
@@ -25,31 +29,118 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
+
 .dancer{
-  transition: border-color 0.5s ease;
-/*  transition: border-radius 0.5s ease;
-*/border:10px solid purple;
-  border-radius:10px;
+  transition: top 0.5s cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  transition: left 0.5s linear;
   position:absolute;
 }
 
+.soul {
+  position: relative;
+  transition: border-radius 0.5s ease;
+  border-radius: 10px;
+  border: 10px solid whitesmoke;
+}
+
 .red {
-  background-color: red;
+  border-color: red;
 }
 
 .blue {
-  background-color: blue;
+  border-color: blue;
 }
 
 .green {
-  background-color: green;
+  border-color: green;
 }
 
-.slim {
-  border-radius: 20px;
-  border: 20px solid purple;
+.yellow {
+  border-color: yellow;
 }
+
+.orange {
+  border-color: orange;
+}
+
+.ticker {
+  border-radius: 20px;
+  border-width: 20px;
+  cursor: pointer;
+}
+
+.blinker {
+  border: 0px;
+  width: 30px;
+  height: 30px;
+  background-image: radial-gradient(ellipse farthest-corner at 15px 15px, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0));
+  animation: fadeout 1s infinite;
+}
+@keyframes fadeout {
+  0% {
+    opacity: 1.0;
+  }
+  70% {
+    opacity: 0.0;
+  }
+  100% {
+    opacity: 1.0
+  }
+}
+
+.beat {
+  cursor: pointer;
+  transition: border-color 0.25s ease;
+  animation: beat .25s infinite alternate;
+	transform-origin: center;
+  border-radius: 10px;
+  border-width: 10px;
+}
+@keyframes beat {
+  to { transform: scale(2.0) };
+}
+
+.beat-big {
+  transform: scale(2.0);
+}
+
+.beat-bigger {
+  transform: scale(4.0);
+}
+
+.beat-biggest {
+  transform: scale(6.0);
+}
+
 .fat {
   border-radius: 20px;
   border: 20px solid purple;
+}
+
+.square {
+  border-radius: 0px;
+  animation: spin 2s;
+  transform-origin: center;
+}
+
+.square-back {
+  border-radius: 0px;
+  animation: spin-backward 1.5s;
+  transform-origin: center;
+}
+
+@keyframes spin {
+  0% {
+      transform: rotate(0deg) scale(1.0);
+      }
+  50% {
+      transform: rotate(360deg) scale(3.0);
+      }
+  100% {
+      transform: rotate(720deg) scale(1.0);
+      }
+}
+@keyframes spin-backward {
+  from {transform:rotate(360deg); }
+  to {transform:rotate(0deg);}
 }

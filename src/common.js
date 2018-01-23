@@ -7,11 +7,10 @@ var lineUp = function(dancers) {
     dancers.forEach(function(dancer) {
       dancer.setPosition(dancer.top, dancer.left);
     });
-    window.dancersLined = false;
+    window.dancersLinedUp = false;
     
   } else {
     dancers.forEach(function(dancer) {
-      console.log(`Left Spacing = ${leftValue}`);
       dancer.setPosition(topValue, `${leftValue}%`);
       leftValue += leftIncrement;
     });
